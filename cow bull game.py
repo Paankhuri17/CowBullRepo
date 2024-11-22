@@ -1,4 +1,4 @@
-gitdef game(op):
+def game(op):
     if op==1:
         print("#repitative")
         import random
