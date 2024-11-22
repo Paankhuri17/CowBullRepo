@@ -4,13 +4,12 @@ def game(op):
         import random
 
         n=int(input("enter the number of digits u want to play for"))
-        r1="1"
-        r2="10"
+        lower_limit="1"
+        upper_limit="10"
         for i in range(n-1):
-            r1+="0"
-            r2+="0"
-        a=str(random.randrange(int(r1),int(r2)))                       #generate number 
-
+            lower_limit+="0"
+            upper_limit+="0"
+        a=str(random.randrange(int(lower_limit),int(upper_limit)))                       #generate number 
         if a.isdigit():
             l=list(a)
             if len(l)==n:
@@ -22,8 +21,9 @@ def game(op):
                         if len(l1)==n:
                             b=0
                             c=0
-                            l=list(a)
-                            for j in range(n):                                       #if l has a nuber more repetition than l1                                        
+                            l=list(a)                                          #undo changes made in l n every iteration
+                            for j in range(n):
+                                print(a)                                       #if l has a nuber more repetition than l1                                        
                                 if l.count(l1[j])>=l1.count(l1[j]):
                                     if l[j]==l1[j]:
                                         b+=1
@@ -47,11 +47,15 @@ def game(op):
                                             for i in range(n):
                                                 if l[i]==l1[j]:
                                                     l[i]="a"
+                            
                             if c==0 and b==0:
                                 print("none")
                             else:
                                 print(c," cows and ",b," bulls ")
                             i+=1
+
+                            
+
                         else:
                             print("pls enter a number with ",n," digits")
                         if d==a:
