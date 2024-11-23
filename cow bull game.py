@@ -1,8 +1,8 @@
+import random
 def game(op):
     if op==1:
         print("#repitative")
-        import random
-
+        
         n=int(input("enter the number of digits u want to play for"))
         lower_limit="1"
         upper_limit="10"
@@ -19,39 +19,38 @@ def game(op):
                     if d.isdigit():
                         l1=list(d)
                         if len(l1)==n:
-                            b=0
-                            c=0
+                            bull=0
+                            cow=0
                             l=list(a)                                          #undo changes made in l n every iteration
-                            for j in range(n):
-                                print(a)                                       #if l has a nuber more repetition than l1                                        
+                            for j in range(n):                                    #if l has a nuber more repetition than l1                                        
                                 if l.count(l1[j])>=l1.count(l1[j]):
                                     if l[j]==l1[j]:
-                                        b+=1
+                                        bull+=1
                                         l[j]="a"
                                         l1[j]="a"                                   # it wont disturb the count 
                                     elif (l1[j] in l):
-                                        c+=1
+                                        cow+=1
                             for j in range(n):                                       #if l has a nubmer repeted less number of times than l1
                                 if l1[j].isdigit():
                                     if l1[j] in l:
                                         if l.count(l1[j])<l1.count(l1[j]):                            
                                             if l[j]==l1[j]:
-                                                    b+=1
+                                                    bull+=1
                                                     l[j]="a"
                                                     l1[j]="a"
                             for j in range(n):
                                 if l1[j].isdigit():
                                     if l.count(l1[j])<l1.count(l1[j]):                                      #cows when l1 has more repetition than l
                                         if l1[j] in l:
-                                            c+=l.count(l1[j])                                   
+                                            cow+=l.count(l1[j])                                   
                                             for i in range(n):
                                                 if l[i]==l1[j]:
                                                     l[i]="a"
                             
-                            if c==0 and b==0:
+                            if cow==0 and bull==0:
                                 print("none")
                             else:
-                                print(c," cows and ",b," bulls ")
+                                print(cow," cows and ",bull," bulls ")
                             i+=1
 
                             
@@ -69,14 +68,13 @@ def game(op):
 
         print("#without repetion")
 
-        import random
         n=int(input("enter the number of digits u want to play for"))
         a=""
         for i in range(n):
-            b=str(random.randrange(0,10))
-            while b in a:
+            bull=str(random.randrange(0,10))
+            while bull in a:
                 b=str(random.randrange(0,10))
-            a+=b    
+            a+=bull    
         l=list(a)
         if len(l)==n:
             i=1
@@ -85,16 +83,16 @@ def game(op):
                 d=input("enter a number")
                 l1=list(d)
                 if len(l1)==n:
-                    b=0
-                    c=0
+                    bull=0
+                    cow=0
                     for j in range(n):
                         if l.count(l1[j])==l1.count(l1[j]):
                             if l[j]==l1[j]:
-                                b+=1
+                                bull+=1
                                 l[j]="a"
                                 l1[j]="a"
                             elif l1[j] in l:
-                                c+=1
+                                cow+=1
                                 l1[j]="a"
                                 for i in range(n):
                                     if l1[j]==l[i]:
@@ -104,22 +102,22 @@ def game(op):
                             if l1[j] in l:
                                 if l.count(l1[j])<l1.count(l1[j]):
                                     if l[j]==l1[j]:
-                                        b+=1
+                                        bull+=1
                                         l[j]="a"
                                         l1[j]="a"
                     for j in range(n):
                         if l1[j].isdigit():
                             if l.count(l1[j])<l1.count(l1[j]):
                                 if l1[j] in l:
-                                    c+=l.count(l1[j])
+                                    cow+=l.count(l1[j])
                                     for i in range(n):
                                         if l[i]==l1[j]:
                                             l[i]="a"
                     l=list(a)
-                    if c==0 and b==0:
+                    if cow==0 and bull==0:
                         print("none")
                     else:
-                        print(c," cows and ",b," bulls ")
+                        print(cow," cows and ",bull," bulls ")
                     i+=1
                 else:
                     print("pls enter a ",n," digit number only")
@@ -130,14 +128,13 @@ def game(op):
         #without repetion(in original number as well as user guesses)
 
         print("#without repetion(in original number as well as user guesses)")
-        import random
         n=int(input("enter the number of digits u want to play for"))
         a=""
         for i in range(n):
-            b=str(random.randrange(1,10))
-            while b in a:
-                b=str(random.randrange(1,10))
-            a+=b
+            bull=str(random.randrange(1,10))
+            while bull in a:
+                bull=str(random.randrange(1,10))
+            a+=bull
         l=list(a)
         if len(l)==n:
             d=""
@@ -153,17 +150,17 @@ def game(op):
                             break
                 l1=list(d)
                 if len(l1)==n:
-                    b=0
-                    c=0
+                    bull=0
+                    cow=0
                     for j in range(n):
                         if l[j]==l1[j]:
-                            b+=1
+                            bull+=1
                         elif l1[j] in l:
-                            c+=1
-                    if c==0 and b==0:
+                            cow+=1
+                    if cow==0 and bull==0:
                         print("none")
                     else:
-                        print(c," cows and ",b," bulls ")                    
+                        print(cow," cows and ",bull," bulls ")                    
                 else:
                     print("pls enter a ",n," digit number only")
             print("concrats",n,"is the correct number")
